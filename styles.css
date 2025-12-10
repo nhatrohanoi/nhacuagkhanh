@@ -47,3 +47,78 @@ button:hover {
     color: red;
     margin-top: 10px;
 }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: #007bff;
+    color: white;
+}
+
+.logout-btn {
+    padding: 8px 14px;
+    border: none;
+    background: #ff4b4b;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #d63838;
+}
+
+.container {
+    padding: 20px;
+}
+
+.input-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.input-box button {
+    padding: 10px 16px;
+    background: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.list {
+    padding: 0;
+    list-style: none;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: #f1f1f1;
+    margin: 8px 0;
+    border-radius: 6px;
+}
+
+.list-item button {
+    padding: 6px 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.list-item button:hover {
+    background: #1e7e33;
+}
+
