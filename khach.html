@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin khách thuê</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h2 id="tieuDePhong"></h2>
+    <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+</div>
+
+<div class="container">
+
+    <!-- PHẦN 1 -->
+    <h3>I. Thông tin khách thuê</h3>
+
+    <div class="form">
+        <label>1. Họ tên</label>
+        <input id="hoTen">
+
+        <label>2. Số điện thoại</label>
+        <input id="soDienThoai">
+
+        <label>3. Tiền thuê (VND)</label>
+        <input id="tienThue" type="number">
+
+        <label>4. Số người</label>
+        <input id="soNguoi" type="number">
+
+        <label>5. Số xe</label>
+        <input id="soXe" type="number">
+
+        <label>6. Công tơ phòng cũ</label>
+        <input id="ctPhongCu" type="number">
+
+        <label>7. Công tơ phòng mới</label>
+        <input id="ctPhongMoi" type="number">
+
+        <label>8. Điện chung cũ</label>
+        <input id="dienChungCu" type="number">
+
+        <label>9. Điện chung mới</label>
+        <input id="dienChungMoi" type="number">
+    </div>
+
+    <h3>II. Dịch vụ</h3>
+    <div class="form">
+        <label>1. Tiền nước / người</label>
+        <input id="tienNuoc" type="number">
+
+        <label>2. Tiền giặt / lượt</label>
+        <input id="tienGiat" type="number">
+
+        <label>3. Tiền sấy / lượt</label>
+        <input id="tienSay" type="number">
+
+        <label>4. Tiền wifi / phòng</label>
+        <input id="tienWifi" type="number">
+
+        <label>5. Tiền rác / người</label>
+        <input id="tienRac" type="number">
+
+        <label>6. Máy lọc nước / người</label>
+        <input id="tienLocNuoc" type="number">
+
+        <label>7. Tiền dọn vệ sinh / phòng</label>
+        <input id="tienDonVeSinh" type="number">
+    </div>
+
+    <button class="calc-btn" onclick="tinhTien()">Tính tiền</button>
+
+    <h3>III. Tổng tiền</h3>
+    <div class="total-box">
+        <p id="ketQua"></p>
+    </div>
+
+    <h3>IV. Thanh toán</h3>
+    <div class="bank-box">
+        <p><b>Ngân hàng MB Bank</b></p>
+        <p><b>STK:</b> 0200356789999</p>
+        <p><b>Chủ tài khoản:</b> Nguyễn Gia Khánh</p>
+    </div>
+
+    <button onclick="quayLai()" class="back-btn">← Quay lại</button>
+
+</div>
+
+<script src="khach.js"></script>
+</body>
+</html>
