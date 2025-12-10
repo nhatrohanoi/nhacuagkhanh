@@ -1,72 +1,105 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang khách</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang khách</title>
 
+<style>
+body { margin:0; background:#f2f2f2; font-family:Arial; }
+.container {
+    max-width:480px; margin:auto; background:white;
+    padding:15px; border-radius:12px; margin-top:15px;
+}
+.header {
+    background:#007bff; padding:15px; color:white;
+    display:flex; justify-content:space-between;
+}
+.header h2 { margin:0; font-size:20px; }
+.logout-btn {
+    background:red; border:none; padding:8px 12px; color:white;
+    border-radius:6px; cursor:pointer;
+}
+
+.section-title {
+    font-size:18px; font-weight:bold;
+    margin-top:20px; padding-bottom:6px;
+    border-bottom:2px solid #ddd;
+}
+
+.form label {
+    display:block; font-size:15px; margin-top:12px; font-weight:bold;
+}
+.form input {
+    width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;
+    margin-top:5px; font-size:15px;
+}
+.form input:disabled { background:#eee; }
+
+.calc-btn {
+    margin-top:20px; width:100%; padding:14px;
+    background:green; color:white; border:none;
+    font-size:17px; border-radius:8px; font-weight:bold;
+}
+
+.total-box {
+    background:#e8e8e8; padding:14px;
+    font-size:20px; border-radius:10px;
+    font-weight:bold; text-align:center;
+    margin-top:10px;
+}
+
+.bank-box {
+    margin-top:15px;
+    padding:12px;
+    background:#fff7da;
+    border-left:5px solid orange;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.copy-btn {
+    margin-top:10px; padding:10px; width:100%;
+    background:#007bff; color:white; border:none;
+    border-radius:6px; font-size:15px;
+}
+
+.note-box {
+    margin-top:12px; background:#e7f3ff;
+    padding:10px; border-left:4px solid #1e88e5;
+    border-radius:6px; font-size:14px;
+}
+</style>
+
+</head>
 <body>
 
 <div class="header">
-    <h2>Thông tin khách thuê</h2>
+    <h2>Trang khách</h2>
     <button class="logout-btn" onclick="logout()">Đăng xuất</button>
 </div>
 
 <div class="container">
 
-    <h3>I. Thông tin phòng & khách</h3>
+    <!-- PHẦN 1 -->
+    <div class="section-title">PHẦN 1: Thông tin khách thuê</div>
 
     <div class="form">
-        <label>Họ tên</label>
+        <label>1. Họ tên</label>
         <input id="hoTen" disabled>
 
-        <label>Số điện thoại</label>
+        <label>2. Số điện thoại</label>
         <input id="soDienThoai" disabled>
 
-        <label>Tiền thuê</label>
+        <label>3. Tiền thuê (VND)</label>
         <input id="tienThue" disabled>
 
-        <label>Số người</label>
+        <label>4. Số người</label>
         <input id="soNguoi" disabled>
 
-        <label>Số xe</label>
+        <label>5. Số xe</label>
         <input id="soXe" disabled>
     </div>
 
-    <h3>II. Chỉ số công tơ</h3>
-
-    <div class="form">
-        <label>Công tơ phòng cũ</label>
-        <input id="ctPhongCu" type="number">
-
-        <label>Công tơ phòng mới</label>
-        <input id="ctPhongMoi" type="number">
-
-        <label>Điện chung cũ</label>
-        <input id="dienChungCu" type="number">
-
-        <label>Điện chung mới</label>
-        <input id="dienChungMoi" type="number">
-    </div>
-
-    <button class="calc-btn" onclick="tinhTien()">Tính tiền</button>
-
-    <h3>III. Kết quả</h3>
-    <div class="total-box">
-        <p id="ketQua"></p>
-    </div>
-
-    <h3>IV. Thanh toán</h3>
-    <div class="bank-box">
-        <p><b>Ngân hàng MB Bank</b></p>
-        <p><b>STK:</b> 0200356789999</p>
-        <p><b>Chủ tài khoản:</b> Nguyễn Gia Khánh</p>
-    </div>
-
-</div>
-
-<script src="guest.js"></script>
-</body>
-</html>
+    <!-- PHẦN 2 -->
+    <div cl
