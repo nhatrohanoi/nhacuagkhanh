@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý cơ sở</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>Quản lý cơ sở</h2>
+        <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+    </div>
+
+    <div class="container">
+
+        <div class="input-box">
+            <input type="text" id="tenCoSo" placeholder="Nhập tên cơ sở...">
+            <button onclick="themCoSo()">Thêm</button>
+        </div>
+
+        <h3>Danh sách cơ sở</h3>
+        <ul id="danhSachCoSo" class="list"></ul>
+
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
