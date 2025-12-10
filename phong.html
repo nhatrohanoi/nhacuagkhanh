@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý phòng</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h2 id="tenTangHeader">Quản lý phòng</h2>
+        <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+    </div>
+
+    <div class="container">
+
+        <div class="input-box">
+            <input type="number" id="soPhong" placeholder="Nhập số phòng...">
+            <button onclick="taoPhong()">Tạo</button>
+        </div>
+
+        <h3>Danh sách phòng</h3>
+        <ul id="danhSachPhong" class="list"></ul>
+
+        <button onclick="quayLai()" class="back-btn">← Quay lại</button>
+    </div>
+
+    <script src="phong.js"></script>
+</body>
+</html>
