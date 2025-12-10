@@ -34,4 +34,42 @@ function tinhTien() {
     let f = data;
 
     let ctPhongCu = +document.getElementById("ctPhongCu").value;
-    let ctPhongMoi = +document.getElementById("ctPhongMoi").
+    let ctPhongMoi = +document.getElementById("ctPhongMoi").value;
+    let dcCu = +document.getElementById("dienChungCu").value;
+    let dcMoi = +document.getElementById("dienChungMoi").value;
+
+    let soNguoi = +f.soNguoi;
+
+    // Dịch vụ do chủ nhà đặt
+    let dv =
+        ( +f.tienNuoc + +f.tienGiat + +f.tienSay +
+          +f.tienRac + +f.tienLocNuoc + +f.tienDonVeSinh ) * soNguoi
+        + +f.tienWifi;
+
+    // Điện chung + phòng
+    let dienChung = (dcMoi - dcCu) * soNguoi;
+    let dienPhong = (ctPhongMoi - ctPhongCu);
+
+    let tong = +f.tienThue + dv + dienChung + dienPhong;
+
+    document.getElementById("ketQua").innerText = VND(tong);
+
+    // Lưu lại công tơ cho tháng sau
+    f.ctPhongCu = ctPhongCu;
+    f.ctPhongMoi = ctPhongMoi;
+    f.dienChungCu = dcCu;
+    f.dienChungMoi = dcMoi;
+
+    let all = JSON.parse(localStorage.getItem("khachThueData"));
+    localStorage.setItem("khachThueData", JSON.stringify(all));
+}
+
+function copySTK() {
+    navigator.clipboard.writeText("0200356789999");
+    alert("Đã copy số tài khoản!");
+}
+
+function logout() {
+    localStorage.removeItem("guestPhone");
+    window.location.href = "index.html";
+}
