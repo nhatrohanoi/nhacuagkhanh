@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông tin khách thuê</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thông tin khách thuê</title>
+<link rel="stylesheet" href="styles.css">
 
+<style>
+body { background: #f1f1f1; margin: 0; font-family: Arial; }
+.container { max-width: 500px; margin: auto; background: white; padding: 15px; border-radius: 10px; }
+
+.section-title {
+   font-size: 20px;
+   font-weight: bold;
+   margin-top: 20px;
+   padding-bottom: 8px;
+   border-bottom: 2px solid #ccc;
+}
+
+.form label { font-weight: bold; margin-top: 10px; display: block; }
+.form input {
+    width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #aaa; border-radius: 6px;
+}
+
+.calc-btn {
+    margin-top: 20px; width: 100%; padding: 12px; font-size: 16px;
+    background: green; color: white; border: none; border-radius: 8px; font-weight: bold;
+}
+
+.total-box {
+    background: #e6e6e6; padding: 12px; border-radius: 8px; margin-top: 10px;
+    font-size: 18px; font-weight: bold;
+}
+
+.bank-box {
+    background: #fff8e6; padding: 12px; border-radius: 8px; margin-top: 10px;
+    border-left: 4px solid orange;
+}
+
+.note-box {
+    background: #eef7ff; padding: 10px; border-left: 4px solid #2196f3; margin-top: 10px;
+}
+</style>
+
+</head>
 <body>
 
 <div class="header">
-    <h2 id="tieuDePhong"></h2>
+    <h2 id="tenPhong">Phòng</h2>
     <button class="logout-btn" onclick="logout()">Đăng xuất</button>
 </div>
 
 <div class="container">
 
     <!-- PHẦN 1 -->
-    <h3>I. Thông tin khách thuê</h3>
+    <div class="section-title">PHẦN 1: Thông tin khách thuê</div>
 
     <div class="form">
+
         <label>1. Họ tên</label>
         <input id="hoTen">
 
@@ -48,45 +86,54 @@
         <input id="dienChungMoi" type="number">
     </div>
 
-    <h3>II. Dịch vụ</h3>
+    <!-- PHẦN 2 -->
+    <div class="section-title">PHẦN 2: Dịch vụ</div>
+
     <div class="form">
-        <label>1. Tiền nước / người</label>
+        <label>1. Tiền nước (VND/người)</label>
         <input id="tienNuoc" type="number">
 
-        <label>2. Tiền giặt / lượt</label>
+        <label>2. Tiền giặt (VND/lượt)</label>
         <input id="tienGiat" type="number">
 
-        <label>3. Tiền sấy / lượt</label>
+        <label>3. Tiền sấy (VND/lượt)</label>
         <input id="tienSay" type="number">
 
-        <label>4. Tiền wifi / phòng</label>
+        <label>4. Tiền wifi (VND/phòng)</label>
         <input id="tienWifi" type="number">
 
-        <label>5. Tiền rác / người</label>
+        <label>5. Tiền rác (VND/người)</label>
         <input id="tienRac" type="number">
 
-        <label>6. Máy lọc nước / người</label>
+        <label>6. Máy lọc nước (VND/người)</label>
         <input id="tienLocNuoc" type="number">
 
-        <label>7. Tiền dọn vệ sinh / phòng</label>
+        <label>7. Tiền dọn vệ sinh (VND/phòng)</label>
         <input id="tienDonVeSinh" type="number">
+    </div>
+
+    <div class="note-box">
+        <b>DỊCH VỤ CHUNG</b> = (Nước + Giặt + Sấy + Rác + Máy lọc nước + Dọn vệ sinh)  
+        × SỐ NGƯỜI + Wifi
     </div>
 
     <button class="calc-btn" onclick="tinhTien()">Tính tiền</button>
 
-    <h3>III. Tổng tiền</h3>
-    <div class="total-box">
-        <p id="ketQua"></p>
+    <div class="section-title">III. Tổng tiền cần phải đóng</div>
+    <div class="total-box" id="ketQua">0 VND</div>
+
+    <div class="note-box">
+        <b>Tổng tiền</b> = Tiền thuê + Dịch vụ chung + Điện chung × Số người + Điện phòng
     </div>
 
-    <h3>IV. Thanh toán</h3>
+    <div class="section-title">IV. Thanh toán</div>
     <div class="bank-box">
-        <p><b>Ngân hàng MB Bank</b></p>
-        <p><b>STK:</b> 0200356789999</p>
-        <p><b>Chủ tài khoản:</b> Nguyễn Gia Khánh</p>
+        <b>Ngân hàng MB Bank</b><br>
+        STK: <b>0200356789999</b><br>
+        Chủ tài khoản: <b>Nguyễn Gia Khánh</b>
     </div>
 
-    <button onclick="quayLai()" class="back-btn">← Quay lại</button>
+    <button class="back-btn" onclick="quayLai()">← Quay lại</button>
 
 </div>
 
