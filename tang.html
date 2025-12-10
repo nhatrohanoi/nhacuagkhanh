@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tầng</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h2 id="tenCoSoHeader">Quản lý tầng</h2>
+        <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+    </div>
+
+    <div class="container">
+
+        <div class="input-box">
+            <input type="number" id="soTang" placeholder="Nhập số tầng...">
+            <button onclick="taoTang()">Tạo</button>
+        </div>
+
+        <h3>Danh sách tầng</h3>
+        <ul id="danhSachTang" class="list"></ul>
+
+        <button onclick="quayLai()" class="back-btn">← Quay lại</button>
+
+    </div>
+
+    <script src="tang.js"></script>
+</body>
+</html>
