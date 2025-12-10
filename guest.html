@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang khách</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Thông tin khách thuê</h2>
+    <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+</div>
+
+<div class="container">
+
+    <h3>I. Thông tin phòng & khách</h3>
+
+    <div class="form">
+        <label>Họ tên</label>
+        <input id="hoTen" disabled>
+
+        <label>Số điện thoại</label>
+        <input id="soDienThoai" disabled>
+
+        <label>Tiền thuê</label>
+        <input id="tienThue" disabled>
+
+        <label>Số người</label>
+        <input id="soNguoi" disabled>
+
+        <label>Số xe</label>
+        <input id="soXe" disabled>
+    </div>
+
+    <h3>II. Chỉ số công tơ</h3>
+
+    <div class="form">
+        <label>Công tơ phòng cũ</label>
+        <input id="ctPhongCu" type="number">
+
+        <label>Công tơ phòng mới</label>
+        <input id="ctPhongMoi" type="number">
+
+        <label>Điện chung cũ</label>
+        <input id="dienChungCu" type="number">
+
+        <label>Điện chung mới</label>
+        <input id="dienChungMoi" type="number">
+    </div>
+
+    <button class="calc-btn" onclick="tinhTien()">Tính tiền</button>
+
+    <h3>III. Kết quả</h3>
+    <div class="total-box">
+        <p id="ketQua"></p>
+    </div>
+
+    <h3>IV. Thanh toán</h3>
+    <div class="bank-box">
+        <p><b>Ngân hàng MB Bank</b></p>
+        <p><b>STK:</b> 0200356789999</p>
+        <p><b>Chủ tài khoản:</b> Nguyễn Gia Khánh</p>
+    </div>
+
+</div>
+
+<script src="guest.js"></script>
+</body>
+</html>
