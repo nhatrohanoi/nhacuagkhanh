@@ -1,77 +1,37 @@
 let phone = localStorage.getItem("guestPhone");
 
-// Tải dữ liệu khi khách đăng nhập
 document.addEventListener("DOMContentLoaded", () => {
     loadData();
 });
 
-// Load dữ liệu khách theo số điện thoại
 function loadData() {
     let data = JSON.parse(localStorage.getItem("khachThueData")) || [];
+    let f = data.find(k => k.soDienThoai == phone);
 
-    let found = data.find(k => k.soDienThoai == phone);
+    if (!f) return alert("Không tìm thấy thông tin khách!");
 
-    if (!found) return alert("Không tìm thấy thông tin khách!");
+    window.data = f;
 
-    window.phongID = found.phongID; // lưu để tính tiền
+    document.getElementById("hoTen").value = f.hoTen;
+    document.getElementById("soDienThoai").value = f.soDienThoai;
+    document.getElementById("tienThue").value = f.tienThue;
+    document.getElementById("soNguoi").value = f.soNguoi;
+    document.getElementById("soXe").value = f.soXe;
 
-    // Chỉ load dữ liệu lên giao diện (xem thôi)
-    document.getElementById("hoTen").value = found.hoTen || "";
-    document.getElementById("soDienThoai").value = found.soDienThoai || "";
-    document.getElementById("tienThue").value = found.tienThue || "";
-    document.getElementById("soNguoi").value = found.soNguoi || "";
-    document.getElementById("soXe").value = found.soXe || "";
-
-    document.getElementById("ctPhongCu").value = found.ctPhongCu || "";
-    document.getElementById("ctPhongMoi").value = found.ctPhongMoi || "";
-    document.getElementById("dienChungCu").value = found.dienChungCu || "";
-    document.getElementById("dienChungMoi").value = found.dienChungMoi || "";
-
-    // Các dịch vụ khách KHÔNG được chỉnh — không hiển thị luôn
+    // 4 mục khách được sửa
+    document.getElementById("ctPhongCu").value = f.ctPhongCu || 0;
+    document.getElementById("ctPhongMoi").value = f.ctPhongMoi || 0;
+    document.getElementById("dienChungCu").value = f.dienChungCu || 0;
+    document.getElementById("dienChungMoi").value = f.dienChungMoi || 0;
 }
 
-// Tính tiền giống ở khach.js
+function VND(num) {
+    return Number(num).toLocaleString("vi-VN") + " VND";
+}
+
 function tinhTien() {
-    let data = JSON.parse(localStorage.getItem("khachThueData")) || [];
-    let found = data.find(k => k.phongID == phongID);
 
-    if (!found) return;
+    let f = data;
 
-    let soNguoi = +found.soNguoi;
-    let tienThue = +found.tienThue;
-
-    let dv =
-        (+found.tienNuoc +
-        +found.tienGiat +
-        +found.tienSay +
-        +found.tienRac +
-        +found.tienLocNuoc +
-        +found.tienDonVeSinh) * soNguoi
-        + +found.tienWifi;
-
-    let dienChung =
-        (+document.getElementById("dienChungMoi").value -
-        +document.getElementById("dienChungCu").value) * soNguoi;
-
-    let dienPhong =
-        (+document.getElementById("ctPhongMoi").value -
-        +document.getElementById("ctPhongCu").value);
-
-    let tong = tienThue + dv + dienChung + dienPhong;
-
-    document.getElementById("ketQua").textContent =
-        tong.toLocaleString("vi-VN") + " VND";
-
-    // Lưu lại công tơ mới cho tháng sau
-    found.ctPhongCu = document.getElementById("ctPhongCu").value;
-    found.ctPhongMoi = document.getElementById("ctPhongMoi").value;
-    found.dienChungCu = document.getElementById("dienChungCu").value;
-    found.dienChungMoi = document.getElementById("dienChungMoi").value;
-
-    localStorage.setItem("khachThueData", JSON.stringify(data));
-}
-
-function logout() {
-    localStorage.removeItem("guestPhone");
-    localStorage.removeItem("currentUser");
-    window.locati
+    let ctPhongCu = +document.getElementById("ctPhongCu").value;
+    let ctPhongMoi = +document.getElementById("ctPhongMoi").
