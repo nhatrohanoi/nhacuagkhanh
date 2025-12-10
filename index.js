@@ -1,42 +1,28 @@
-// Tài khoản admin mặc định
-const ADMIN_USER = "giakhanh0311";
-const ADMIN_PASS = "khanh0311";
-
-// hàm đăng nhập
 function login() {
-    const user = document.getElementById("username").value.trim();
-    const pass = document.getElementById("password").value.trim();
-    const error = document.getElementById("login-error");
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    error.textContent = "";
+    if (!username || !password) {
+        alert("Vui lòng nhập đầy đủ tài khoản và mật khẩu!");
+        return;
+    }
 
-    // --- KIỂM TRA ADMIN ---
-    if (user === ADMIN_USER && pass === ADMIN_PASS) {
-        localStorage.setItem("currentUser", "admin");
+    if (username === "giakhanh0311" && password === "khanh0311") {
+        localStorage.setItem("userRole", "admin");
+        localStorage.removeItem("guestPhone");
         window.location.href = "admin.html";
         return;
     }
 
-    // --- KIỂM TRA KHÁCH ---
-    let allData = JSON.parse(localStorage.getItem("khachThueData")) || [];
+    let khachData = JSON.parse(localStorage.getItem("khachThueData")) || [];
+    let found = khachData.find(k => k.soDienThoai === username);
 
-    // tìm khách theo số điện thoại
-    let found = allData.find(khach => khach.soDienThoai == user);
-
-    if (!found) {
-        error.textContent = "Không tìm thấy tài khoản khách!";
+    if (found && password === username) {
+        localStorage.setItem("userRole", "guest");
+        localStorage.setItem("guestPhone", username);
+        window.location.href = "guest.html";
         return;
     }
 
-    // mật khẩu của khách = số điện thoại
-    if (pass !== user) {
-        error.textContent = "Sai mật khẩu!";
-        return;
-    }
-
-    // lưu khách đang đăng nhập
-    localStorage.setItem("currentUser", "guest");
-    localStorage.setItem("guestPhone", user);
-
-    window.location.href = "guest.html";  // chuyển sang giao diện khách
+    alert("Tài khoản hoặc mật khẩu không đúng!");
 }
