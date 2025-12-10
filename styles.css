@@ -135,3 +135,29 @@ button:hover {
 .back-btn:hover {
     background: #555;
 }
+.total-box, .bank-box {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.calc-btn {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.calc-btn:hover {
+    background: #1e7e34;
+}
+
+.form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
