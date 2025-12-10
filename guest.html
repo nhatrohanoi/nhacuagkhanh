@@ -102,4 +102,47 @@ body { margin:0; background:#f2f2f2; font-family:Arial; }
     </div>
 
     <!-- PHẦN 2 -->
-    <div cl
+    <div class="section-title">PHẦN 2: Chỉ số công tơ (Được phép sửa)</div>
+
+    <div class="form">
+        <label>6. Công tơ phòng cũ</label>
+        <input id="ctPhongCu" type="number">
+
+        <label>7. Công tơ phòng mới</label>
+        <input id="ctPhongMoi" type="number">
+
+        <label>8. Điện chung cũ</label>
+        <input id="dienChungCu" type="number">
+
+        <label>9. Điện chung mới</label>
+        <input id="dienChungMoi" type="number">
+    </div>
+
+    <button class="calc-btn" onclick="tinhTien()">Tính tiền</button>
+
+    <div class="section-title">III. Tổng tiền phải đóng</div>
+    <div class="total-box" id="ketQua">0 VND</div>
+
+    <div class="note-box">
+        <b>Công thức chi tiết:</b><br>
+        • Dịch vụ chung = (Nước + Giặt + Sấy + Rác + Máy lọc nước + Dọn vệ sinh) × Số người + Wifi<br>
+        • Điện chung = (Công tơ chung mới - cũ) × Số người<br>
+        • Điện phòng = Công tơ phòng mới - cũ<br><br>
+        <b>Tổng tiền = Tiền thuê + Dịch vụ chung + Điện chung + Điện phòng</b>
+    </div>
+
+    <div class="section-title">IV. Thanh toán</div>
+
+    <div class="bank-box">
+        <b>Ngân hàng MB Bank</b><br>
+        Số tài khoản: <b id="stk">0200356789999</b><br>
+        Chủ tài khoản: <b>Nguyễn Gia Khánh</b>
+    </div>
+
+    <button class="copy-btn" onclick="copySTK()">Copy số tài khoản</button>
+
+</div>
+
+<script src="guest.js"></script>
+</body>
+</html>
