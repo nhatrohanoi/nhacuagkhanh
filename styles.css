@@ -122,3 +122,16 @@ button:hover {
     background: #1e7e33;
 }
 
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 16px;
+    background: #6c757d;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #555;
+}
